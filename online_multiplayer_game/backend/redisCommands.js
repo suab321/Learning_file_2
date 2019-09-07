@@ -25,23 +25,26 @@ function Onlineusers(){
 
 //function to store new socket connections//
 function setValue(value){
-    client.sadd(OnlineUserSet,value.user_id,(err,reply)=>{
-        if(err)
-            console.log(err);
-        else
-            console.log(reply);
-    });
-    client.hmset(value.user_id,[
-        'namespace',value.namespace,
-        'user_id',value.user_id,
-        'socket_id',value.socket_id,
-        'name',value.name
-    ],(err,reply)=>{
-        if(err)
-            console.log(err);
-        else
-            console.log(reply);
-    });
+    return new Promise((resolve,reject)=>{
+        console.log(value);
+        client.sadd(OnlineUserSet,value.user_id,(err,reply)=>{
+            if(err)
+                console.log(err);
+            else
+                console.log(reply);
+        });
+        client.hmset(value.user_id,[
+            'namespace',value.namespace,
+            'user_id',value.user_id,
+            'socket_id',value.socket_id,
+            'name',value.name
+        ],(err,reply)=>{
+            if(err)
+                reject(err);
+            else
+                resolve(reply);
+        });
+    })
 }
 //function ends//
 
@@ -63,16 +66,8 @@ function getAll(key){
 
 
 //function to delete a socket when it gets disconnected//
-function deleteConnection(userId,socketId){
-    client.hgetall(userId,(err,reply)=>{
-        if(reply.socket_id === socketId)
-            deleteUser(userId);
-        else
-            return;
-    })
-}
-function deleteUser(userId){
-    client.srem(OnlineUserSet,userId,(err,reply)=>{
+function deleteConnection(userId){
+    client.srem(OnlineUserSet,(String)(userId),(err,reply)=>{
         if(err)
             console.log(err);
         else{

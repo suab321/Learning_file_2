@@ -1,7 +1,7 @@
 import React from 'react';
 // import {Button} from 'react-materialize'
 
-const {ConnectUser,getOnlineUsers}=require('../socket');
+const {ConnectUser,getOnlineUsers,disconnectSocket}=require('../socket');
 // const {backendURL}=require('../url');
 
 
@@ -17,15 +17,15 @@ class Tictactoe extends React.Component{
     }
 
     componentDidMount(){
-        console.log("yes");
         console.log(this.props.match.params);
         if(this.props.match.params.game==='tictactoe')
-        this.setState({isOkay:true});
+            this.setState({isOkay:true});
         ConnectUser();
         getOnlineUsers();
-
     }
-
+    componentWillUnmount(){
+        disconnectSocket();
+    }
 
     render(){
         let connections;

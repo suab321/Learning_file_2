@@ -1,7 +1,8 @@
 const io=require('socket.io-client');
 const {backendURL}=require('./url')
 
-let socket=io(`${backendURL}/${'tictactoe'}`,{forceNew:true});
+var socket=io(`${backendURL}/${'tictactoe'}`,{forceNew:true});
+
 
 socket.on('OnlineUsers',data=>console.log(data));
 
@@ -11,16 +12,17 @@ function ConnectUser(){
 }
 
 function disconnectSocket(){
-    socket.emit('disconnctSocket');
+    socket.emit('disconnectSocket',{msg:'h'});
 }
 
-function getOnlineUsers(game){
-    socket.emit('getUsers')
+function getOnlineUsers(){
+    socket.emit('getUsers');
 }
 
 
 
 module.exports={
     ConnectUser,
-    getOnlineUsers
+    getOnlineUsers,
+    disconnectSocket
 }
