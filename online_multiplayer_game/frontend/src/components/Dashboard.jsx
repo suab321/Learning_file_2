@@ -14,6 +14,7 @@ class Dashboard extends React.Component{
         return(
             <div>
                 <h4>{this.props.name}</h4>
+                <button onClick={this.props.disconnect}>Disconnect</button>
             </div>
         )
     }
