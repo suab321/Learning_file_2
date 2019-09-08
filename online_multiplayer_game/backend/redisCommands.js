@@ -84,8 +84,22 @@ function deleteConnection(userId){
 }
 //function ends//
 
+//function to a single connected socket//
+function getUser(userId){
+    return new Promise((reslove,reject)=>{
+        client.hgetall(userId,(err,reply)=>{
+            if(err)
+                reject(err);
+            else
+                reslove(reply);
+        });
+    });
+}
+//function ends
+
 module.exports={
     setValue,
     Onlineusers,
+    getUser,
     deleteConnection
 }

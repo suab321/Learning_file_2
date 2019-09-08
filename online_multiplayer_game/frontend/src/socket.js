@@ -4,7 +4,7 @@ const {backendURL}=require('./url')
 var socket=io(`${backendURL}/${'tictactoe'}`,{forceNew:true});
 
 
-socket.on('OnlineUsers',data=>console.log(data));
+// socket.on('OnlineUsers',data=>console.log(data));
 
 
 function ConnectUser(){
@@ -22,6 +22,7 @@ function getOnlineUsers(){
 
 
 module.exports={
+    socket,
     ConnectUser,
     getOnlineUsers,
     disconnectSocket

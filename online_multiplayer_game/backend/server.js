@@ -61,7 +61,7 @@ const listen=app.listen(process.env.PORT||3002);
 app.get('/isLoggedIn',(req,res)=>{
     console.log(req.session.user);
     if(req.session.user!==undefined)
-        res.status(200).json({name:req.session.name});
+        res.status(200).json({name:req.session.name,userId:req.session.user});
     else
         res.status(401).json({ok:"okay"});
 })
