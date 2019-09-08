@@ -54,7 +54,7 @@ function connection(io){
             //socket when a user play a move//
             socket.on("MoveByMe",data=>{
                 console.log(data);
-                io.of('tictactoe').to(data.room).to(data.Challenger.socket_id).emit('MoveFromOpp',data.block);
+                io.of('tictactoe').to(data.Challenger.socket_id).emit('MoveFromOpp',{block:data.block,sign:data.sign,Challenger:data.Challenger});
             })
         }
         else
