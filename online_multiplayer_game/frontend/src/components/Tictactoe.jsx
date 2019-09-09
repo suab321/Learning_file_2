@@ -14,7 +14,8 @@ class Tictactoe extends React.Component{
             isOkay:false,
             users:[],
             ioId:'',
-            game:{isBusy:false,Challenger:null,me:null,sign:'',room:''}
+            game:{isBusy:false,Challenger:null,me:null,sign:'',room:''},
+            startTimer:false
         };
 
         this.challenge=this.challenge.bind(this);
@@ -25,10 +26,10 @@ class Tictactoe extends React.Component{
         socket.emit('Challenge',{user,userId:this.state.ioId});
     }
 
-    async componentDidMount(){
+    componentDidMount(){
         Axios.get(`${backendURL}/isLoggedIn`,{withCredentials:true}).then(res=>{
             this.setState({ioId:res.data.userId});
-        })
+        });
         socket.on('OnlineUsers',data=>{this.setState({users:data.users})});
         socket.on('ChallengeRequest',data=>{
             console.log(data);
@@ -54,6 +55,7 @@ class Tictactoe extends React.Component{
             }
             let game={isBusy:true,Challenger:Challenger,me:me,sign:data.sign,room:room}
             this.setState({game:game});
+            socket.emit('IntoGame',{room:room});
         });
         socket.on('RejectedChallenge',data=>console.log("Challenege Rejected "+data))
         console.log(this.props.match.params);
@@ -66,11 +68,15 @@ class Tictactoe extends React.Component{
     componentWillUnmount(){
         disconnectSocket();
     }
-
+    reload(){
+        console.log("reloaded");
+    }
     render(){
         // console.log(this.state);
         let connections=[];
-        if(this.state.users.length===0)
+        if(this.state.users===undefined)
+            connections=<h4>"No one is online"</h4>;
+        else if(this.state.users.length===0)
             connections=<h4>"No one is online"</h4>;
         else{
             const x=this.state.users.filter(i=>{

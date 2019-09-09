@@ -8,12 +8,30 @@ class TTT extends React.Component{
         super(props);
         this.state={
             a:null,
-            Result:{Winner:'',Looser:'',isFinished:false},
-            myChance:true,
+            OpponentConnected:true,
+            Result:{Winner:'',Looser:'',isFinished:false,isDraw:false},
+            myChance:false,
             hasClicked:false
         };
         this.clicked=this.clicked.bind(this);
         this.hasWon=this.hasWon.bind(this);
+        this.isDraw=this.isDraw.bind(this);
+        console.log(this.props.info)
+    }
+
+    isDraw(id,sign){
+        var x=this.state.a;
+        x[id[0]][id[1]]=sign;
+        var flag=0;
+        for(var i=0;i<3;i++){
+            for(var j=0;j<3;j++)
+                if(x[i][j]===0)
+                    flag=1;
+        }
+        if(flag===1)
+            return false;
+        else
+            return true;
     }
 
     hasWon(id,sign){
@@ -27,7 +45,7 @@ class TTT extends React.Component{
                 if(x[i][c]!==sign)
                     break;
             }
-            if(c==3)
+            if(c===3)
                 resolve(true);
             for(c=0;c<3;c++){
                 if(x[c][j]!==sign)
@@ -40,21 +58,21 @@ class TTT extends React.Component{
                     break;
             }
 
-            if(c==3)
+            if(c===3)
                 resolve(true);
             for(c=0;c<3;c++){
                 if(x[c][2-c]!==sign)
                     break;
             }
-            if(c==3)
+            if(c===3)
                 resolve(true);
             resolve(false);
         })
         
     }
-    
 
     async clicked(event){
+        var id=event.target.id;
         if(this.state.myChance){
                 var x=this.state.a;
                 console.log(x);
@@ -70,7 +88,12 @@ class TTT extends React.Component{
                     let result=await this.hasWon(event.target.id,this.props.info.sign);
                     console.log(result);
                     if(result)
-                        this.setState({Result:{Winner:this.props.info.me,Looser:this.props.info.Challenger,isFinished:true}});
+                        this.setState({Result:{Winner:this.props.info.me,Looser:this.props.info.Challenger,isFinished:true,isDraw:false}});
+                    let r1=await this.isDraw(id,this.props.info.sign);
+                    if(r1){
+                        this.setState({Result:{Winner:'',Looser:'',isFinished:true,isDraw:true}})
+                    }
+
                 }
                 else
                     alert('Place is already Occupied!');
@@ -80,20 +103,37 @@ class TTT extends React.Component{
     }
 
     componentDidMount(){
+        window.addEventListener('beforeunload',()=>{socket.emit('DisconnectFromGame',{room:this.props.info.room,userId:this.props.info.me.user_id,data:this.props.info.Challenger})})
+        socket.emit('InGame',{room:this.props.info.sign,data:this.props.info.Challenger});
+        socket.on('OppoDeactive',data=>{
+            console.log(data);
+            this.setState({OpponentConnected:false})
+        })
+        socket.on('OpponentActive',data=>{
+            console.log(data);
+            this.setState({OpponentConnected:true})
+        })
+
        var x=new Array(3);
        for(var i=0;i<3;i++){
            x[i]=new Array(3);
            for(var j=0;j<3;j++)
                 x[i][j]=0
        }
+       if(this.props.info.sign==='x')
+            this.setState({myChance:true});
        this.setState({a:x})
        console.log(this.props.info);
        socket.on('MoveFromOpp',async data=>{
         //    console.log(data);
            let result=await this.hasWon(data.block,data.sign);
-           console.log(result);
-           if(result)
-                this.setState({Result:{Winner:this.props.info.Challenger,Looser:this.props.info.me,isFinished:true}});
+            console.log(result);
+            let r1=await this.isDraw(data.block,data.sign);
+            if(r1)
+                this.setState({Result:{Winner:'',Looser:'',isFinished:true,isDraw:true}});
+           else if(result)
+                this.setState({Result:{Winner:this.props.info.Challenger,Looser:this.props.info.me,isFinished:true,isDraw:false}});
+            
             else{
                 let x=this.state.a;
                 x[data.block[0]][data.block[1]]=data.sign;
@@ -103,8 +143,14 @@ class TTT extends React.Component{
        });
     }
 
+    componentWillUnmount(){
+        socket.emit('DisconnectFromGame',{room:this.props.info.room,userId:this.props.info.me.user_id,data:this.props.info.Challenger})
+    }
+
     render(){
         console.log(this.state.a);
+
+        if(this.state.OpponentConnected){
         if(!this.state.Result.isFinished){
             return(
                 <div style={{textAlign:'center'}}>
@@ -126,11 +172,21 @@ class TTT extends React.Component{
                         <td id="22"onClick={this.clicked}></td>
                     </tr>
                     </table>
+                    <h3 style={{color:'green'}} hidden={!this.state.myChance}>Your Chance</h3>
+                    <h3 style={{color:'red'}} hidden={this.state.myChance}>Your Opponents turn</h3>
                 </div>
             )
         }
         else{
-            if(this.state.Result.Winner.user_id===this.props.info.Challenger.user_id){
+            if(this.state.Result.isDraw){
+                return(
+                    <div style={{textAlign:'center'}}>
+                        <h1>Well played! You had a draw</h1>
+                    </div>
+                )
+            }
+
+            else if(this.state.Result.Winner.user_id===this.props.info.Challenger.user_id){
                 return(
                     <div style={{textAlign:false}}>
                         <h1>Better Luck Next Time brother!</h1>
@@ -145,6 +201,14 @@ class TTT extends React.Component{
                 )
             }
         }
+    }
+    else{
+        return(
+            <div style={{textAlign:'center'}}>
+                <h1>Your Opponent has fled the arena!</h1>
+            </div>
+        )
+    }
     }
 }
 
