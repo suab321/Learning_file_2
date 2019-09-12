@@ -68,9 +68,7 @@ class Tictactoe extends React.Component{
     componentWillUnmount(){
         disconnectSocket();
     }
-    reload(){
-        console.log("reloaded");
-    }
+    
     render(){
         // console.log(this.state);
         let connections=[];
