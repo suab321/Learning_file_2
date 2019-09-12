@@ -1,6 +1,7 @@
 const redis=require('redis');
+const {redisURL}=require('./urk')
 
-const client=redis.createClient({host:'127.0.0.1',port:'6379'});
+const client=redis.createClient({host:redisURL.host,port:redisURL.port});
 
 client.on('connect',()=>{console.log("redis server connected")});
 client.on('error',(err)=>{console.log(err)})
@@ -156,6 +157,5 @@ module.exports={
     getUser,
     deleteConnection,
     createRoom,
-    checkInRoom,
     DeleteGamerFromRoom
 }

@@ -1,11 +1,15 @@
 
 //developer made imports//
-const {setValue,Onlineusers,deleteConnection,getUser,createRoom,checkInRoom,DeleteGamerFromRoom}=require('./redisCommands');
+const {setValue,Onlineusers,deleteConnection,getUser,createRoom,DeleteGamerFromRoom}=require('./redisCommands');
 //developer made imports
 
 var Online_users=[];
+const redisAdapter=require('socket.io-redis');
+
 
 function connection(io){
+    // io.adapter(redisAdapter)
+
     let ttt=io.of('/tictactoe');
     ttt.on('connection',(socket)=>{
         if(socket.request.session.user!==undefined){
@@ -63,7 +67,7 @@ function connection(io){
             //Scoket has entered the arena//
             socket.on('InGame',async data=>{
 
-                console.log("In game "+JSON.stringify(data));
+                // console.log("In game "+JSON.stringify(data));
                 let x=await createRoom(data.room,socket.request.session.user);
                 io.of('tictactoe').to(data.data.socket_id).emit('OpponentActive',{msg:'oppoenent is active'});
             })

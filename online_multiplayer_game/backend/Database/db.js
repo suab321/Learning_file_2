@@ -1,9 +1,10 @@
 require('dotenv').config();
+const {mongodb}=require('../urk')
+
 
 const mongoose=require('mongoose');
-const ConnectionString=(String)(process.env.DatabaseConnection);
 
-mongoose.connect("mongodb://127.0.0.1/online_game",(err=>{
+mongoose.connect(process.env.DatabaseConnection,(err=>{
     if(err)
         console.log(err);
 }));

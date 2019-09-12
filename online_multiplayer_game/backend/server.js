@@ -10,6 +10,7 @@ const socket=require('socket.io');
 
 
 
+
 const app=express();
 
 //importing developer made modules//
@@ -34,7 +35,7 @@ const sessionObj=session({
 
 //middleware used by our express instances//
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(sessionObj);
 app.use(passport.initialize());
 app.use(passport.session());
@@ -67,10 +68,13 @@ app.get('/isLoggedIn',(req,res)=>{
 })
 
 //socket connection//
+
 let io=socket(listen);
+
 io.use((socket,next)=>{
     // console.log(socket.handshake);
     sessionObj(socket.request,socket.request.res,next);
     // console.log(socket.request.session);
 });
 connection(io);
+

@@ -1,6 +1,8 @@
 const passport=require('passport');
 const facebook=require('passport-facebook').Strategy;
-const google=require('passport-google-oauth20').Strategy
+const google=require('passport-google-oauth20').Strategy;
+
+require('dotenv').config();
 
 //developer made modules//
 const {User}=require('../Database/db');
@@ -16,8 +18,8 @@ passport.deserializeUser(async(id,done)=>{
 
 //facebook login module//
 passport.use(new facebook({
-    clientID:'2332989050284629',
-    clientSecret:'65ecd94356db1447d203318924643103',
+    clientID:process.env.FacebookID,
+    clientSecret:process.env.FacebookSecret,
     callbackURL:'http://localhost:3002/authentication/redirect'
 },
 async function(accessToken,refreshToken,profile,done){
@@ -30,8 +32,8 @@ console.log(profile);
 
 //google_login module
 passport.use(new google({
-    clientID:'85877161047-6jb3f2j1ips17cmh5snec3ml6pq5nicb.apps.googleusercontent.com',
-    clientSecret:'9qJDF1hIp4bxNU9wiVgEV7JZ',
+    clientID:process.env.GoogleID,
+    clientSecret:process.env.GoogleSecret,
     callbackURL:'http://localhost:3002/authentication/google_redirect'
 },
 async function(accessToken,refreshToken,profile,done){
