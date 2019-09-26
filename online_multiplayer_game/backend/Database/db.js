@@ -1,5 +1,4 @@
 require('dotenv').config();
-const {mongodb}=require('../urk')
 
 
 const mongoose=require('mongoose');

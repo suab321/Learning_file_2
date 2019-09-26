@@ -10,12 +10,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine','ejs');
 
-const checkFile=(file,cb)=>{
-    console.log(file.filename);
-    if(path.extname(file.originalname)==='html')
-        cb(null,true);
-    else
-        cb("Select an Html File only");
+function checkFile(file){
+    console.log(path.extname(file.originalname));
+    return new Promise((reslove,reject)=>{
+        if(path.extname(file.originalname)==='.html')
+            reslove(1);
+        else
+            reslove(0);
+    })
 }
 
 const storage=multer.diskStorage({
@@ -31,10 +33,13 @@ app.get("/",(req,res)=>{
 })
 
 app.post('/upload',(req,res)=>{
-    // console.log("yes");
-    // console.log(req.file);
-    uploader(req,res,(err)=>{
-        // console.log(req.file);
+    uploader(req,res,async(err)=>{
+        const d=await checkFile(req.file);
+        console.log(d);
+        if(d===0){
+            res.render("page",{msg:"Cmon cant you upload a html file"});
+            return;
+        }
         if(err){
             res.render("page",{msg:err})
         }
@@ -49,11 +54,18 @@ app.post('/upload',(req,res)=>{
                 const c=(String)(convert(req.file.path));
                 console.log(c);
                 if(c==0){
+                    try{
                     res.download("/home/abhinav/Desktop/result.jsx");
-                    cp.exec("rm /home/abhinav/Desktop/result.jsx");
+                    }catch(err){res.render("page",{msg:"error there is some error in file"})}
                 }
                 else
                     res.render("page",{msg:c});
+                cp.exec(`rm ${req.file.path}`);
+
+                // try{
+                //     cp.exec("rm /home/abhinav/Desktop/result.jsx");
+
+                // }catch(err){console.log(err)};
             }
         }
     }

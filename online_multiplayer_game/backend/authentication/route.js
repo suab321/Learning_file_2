@@ -6,7 +6,8 @@ const {frontURL}=require('../urk')
 //facebook routes//
 router.get('/login',passport.authenticate('facebook',{scope:['email']}));
 router.get('/redirect',passport.authenticate('facebook'),(req,res)=>{
-    req.session.user=req.user._id
+    req.session.user=req.user._id;
+    req.session.name=req.user.name;
 })
 //routes ends//
 

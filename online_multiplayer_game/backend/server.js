@@ -6,6 +6,11 @@ const bodyParser=require('body-parser');
 const passport=require('passport');
 const cors=require('cors');
 const socket=require('socket.io');
+const redisAdapter=require('socket.io-redis');
+const sticky=require('sticky-session');
+const os=require('os');
+const cluster=require('cluster');
+const http=require('http')
 
 
 
@@ -41,7 +46,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./authentication/config');
 
-
 app.use(cors({
     credentials:true,
     origin:frontURL
@@ -56,9 +60,6 @@ app.use((req,res,next)=>{
 
 app.use('/authentication',authentication)
 //middleware used by our express instances ends//
-
-const listen=app.listen(process.env.PORT||3002);
-
 app.get('/isLoggedIn',(req,res)=>{
     console.log(req.session.user);
     if(req.session.user!==undefined)
@@ -66,15 +67,23 @@ app.get('/isLoggedIn',(req,res)=>{
     else
         res.status(401).json({ok:"okay"});
 })
+const server=http.Server(app);
 
-//socket connection//
-
-let io=socket(listen);
-
-io.use((socket,next)=>{
-    // console.log(socket.handshake);
-    sessionObj(socket.request,socket.request.res,next);
-    // console.log(socket.request.session);
-});
+let io=socket(server);
+    io.adapter(redisAdapter({host:'localhost',port:'6379'}))
+    io.use((socket,next)=>{
+        // console.log(socket.handshake);
+        sessionObj(socket.request,socket.request.res,next);
+        // console.log(socket.request.session);
+    });
 connection(io);
+
+const port=process.env.PORT||3002;
+if(!sticky.listen(server,port)){
+    server.once('listening',()=>{console.log('Server started on port '+port)});
+    if(cluster.isMaster)
+        console.log('master');
+}
+else
+    console.log(cluster.worker.id);
 
