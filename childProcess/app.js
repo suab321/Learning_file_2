@@ -38,6 +38,7 @@ app.post('/upload',(req,res)=>{
         console.log(d);
         if(d===0){
             res.render("page",{msg:"Cmon cant you upload a html file"});
+            cp.exec(`rm ${req.file.path}`);
             return;
         }
         if(err){
@@ -60,7 +61,6 @@ app.post('/upload',(req,res)=>{
                 }
                 else
                     res.render("page",{msg:c});
-                cp.exec(`rm ${req.file.path}`);
 
                 // try{
                 //     cp.exec("rm /home/abhinav/Desktop/result.jsx");
@@ -68,6 +68,7 @@ app.post('/upload',(req,res)=>{
                 // }catch(err){console.log(err)};
             }
         }
+        cp.exec(`rm ${req.file.path}`);
     }
 )})
 
