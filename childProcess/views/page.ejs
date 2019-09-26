@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <body>
+            <form method="POST" enctype="multipart/form-data" action="/upload">
+                <input type="file" name="file">
+                <button type="submit">Upload</button>
+                <h1><%= typeof msg!='undefined'?msg:"Welcome" %></h1>
+            </form>
+        </body>
+    </head>
+</html>
