@@ -70,7 +70,7 @@ app.get('/isLoggedIn',(req,res)=>{
 const server=http.Server(app);
 
 let io=socket(server);
-    io.adapter(redisAdapter({host:'localhost',port:'6379'}))
+    io.adapter(redisAdapter({host:'localhost',port:'6379'}));
     io.use((socket,next)=>{
         // console.log(socket.handshake);
         sessionObj(socket.request,socket.request.res,next);
