@@ -1,0 +1,21 @@
+{
+  "name": "nodejsEvenetsbasic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "farmhash": "^3.0.0",
+    "http": "0.0.0",
+    "net": "^1.0.2",
+    "nodemon": "^1.19.3",
+    "socket-io": "^1.0.0",
+    "socket.io": "^2.3.0",
+    "socket.io-redis": "^5.2.0"
+  }
+}
