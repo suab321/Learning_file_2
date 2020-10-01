@@ -1,0 +1,3 @@
+/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles/rebuild_cache.dir
+/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles/abhi.dir
+/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles/edit_cache.dir

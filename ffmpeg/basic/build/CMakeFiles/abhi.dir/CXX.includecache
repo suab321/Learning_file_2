@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abhinav/Learning_file_2/ffmpeg/basic/main2.cpp
+libavcodec/avcodec.h
+-
+libavformat/avformat.h
+-
+libswscale/swscale.h
+-
+SDL2/SDL.h
+-
+SDL2/SDL_thread.h
+-
+iostream
+-
+
