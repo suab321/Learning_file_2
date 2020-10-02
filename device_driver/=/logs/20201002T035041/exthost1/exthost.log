@@ -1,0 +1,53 @@
+[2020-10-02 03:50:51.263] [exthost] [info] extension host started
+[2020-10-02 03:50:51.284] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2020-10-02 03:50:51.284] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2020-10-02 03:50:51.731] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
+[2020-10-02 03:50:51.731] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github-authentication/dist/extension.js
+[2020-10-02 03:50:52.105] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2020-10-02 03:50:52.105] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2020-10-02 03:50:52.270] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"*"}
+[2020-10-02 03:50:52.270] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain
+[2020-10-02 03:50:52.384] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2020-10-02 03:50:52.385] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2020-10-02 03:50:52.535] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"*"}
+[2020-10-02 03:50:52.535] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/mergeConflictMain
+[2020-10-02 03:50:52.721] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-result {"startup":true,"extensionId":{"value":"vscode.search-result","_lower":"vscode.search-result"},"activationEvent":"*"}
+[2020-10-02 03:50:52.721] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/search-result/dist/extension.js
+[2020-10-02 03:50:52.746] [exthost] [info] ExtensionService#_doActivateExtension aslamanver.node-js-dependency-manager {"startup":true,"extensionId":{"value":"aslamanver.node-js-dependency-manager","_lower":"aslamanver.node-js-dependency-manager"},"activationEvent":"*"}
+[2020-10-02 03:50:52.747] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/abhinav/.vscode/extensions/aslamanver.node-js-dependency-manager-1.1.2/src/extension.js
+[2020-10-02 03:50:52.812] [exthost] [info] ExtensionService#_doActivateExtension christian-kohler.path-intellisense {"startup":true,"extensionId":{"value":"christian-kohler.path-intellisense","_lower":"christian-kohler.path-intellisense"},"activationEvent":"*"}
+[2020-10-02 03:50:52.812] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/abhinav/.vscode/extensions/christian-kohler.path-intellisense-2.3.0/out/extension.js
+[2020-10-02 03:50:53.000] [exthost] [info] ExtensionService#_doActivateExtension cweijan.vscode-mysql-client2 {"startup":true,"extensionId":{"value":"cweijan.vscode-mysql-client2","_lower":"cweijan.vscode-mysql-client2"},"activationEvent":"*"}
+[2020-10-02 03:50:53.001] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/abhinav/.vscode/extensions/cweijan.vscode-mysql-client2-2.5.8/out/extension
+[2020-10-02 03:50:53.362] [exthost] [info] ExtensionService#_doActivateExtension dbaeumer.vscode-eslint {"startup":true,"extensionId":{"value":"dbaeumer.vscode-eslint","_lower":"dbaeumer.vscode-eslint"},"activationEvent":"*"}
+[2020-10-02 03:50:53.362] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/abhinav/.vscode/extensions/dbaeumer.vscode-eslint-2.1.8/client/out/extension
+[2020-10-02 03:50:53.394] [exthost] [info] ExtensionService#_doActivateExtension ms-vsliveshare.vsliveshare {"startup":true,"extensionId":{"value":"ms-vsliveshare.vsliveshare-audio","_lower":"ms-vsliveshare.vsliveshare-audio"},"activationEvent":"*"}
+[2020-10-02 03:50:53.394] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/abhinav/.vscode/extensions/ms-vsliveshare.vsliveshare-1.0.2902/out/prod/extension-prod
+[2020-10-02 03:50:54.261] [exthost] [info] ExtensionService#_doActivateExtension Shan.code-settings-sync {"startup":true,"extensionId":{"value":"Shan.code-settings-sync","_lower":"shan.code-settings-sync"},"activationEvent":"*"}
+[2020-10-02 03:50:54.261] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/abhinav/.vscode/extensions/shan.code-settings-sync-3.4.3/out/extension.js
+[2020-10-02 03:50:54.524] [exthost] [error] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+	at validateString (internal/validators.js:112:11)
+	at Object.join (path.js:1039:7)
+	at /home/abhinav/.vscode/extensions/aslamanver.node-js-dependency-manager-1.1.2/src/extension.js:29:27
+	at _executeContributedCommand (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:675:513)
+	at _doExecuteCommand (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:674:689)
+	at _.executeCommand (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:674:595)
+	at Object.executeCommand (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:977:820)
+	at /home/abhinav/.vscode/extensions/aslamanver.node-js-dependency-manager-1.1.2/src/extension.js:90:20
+	at suppressedCallback (fs.js:202:5)
+	at FSReqCallback.oncomplete (fs.js:146:23) extension.node-js-dependency-manager
+[2020-10-02 03:50:59.401] [exthost] [error] Activating extension ms-vsliveshare.vsliveshare failed due to an error:
+[2020-10-02 03:50:59.401] [exthost] [error] Error: Agent terminated with exit code: 0 and signal null: A fatal error occurred. The required library libhostfxr.so could not be found.
+If this is a self-contained application, that library should exist in [/home/abhinav/.vscode/extensions/ms-vsliveshare.vsliveshare-1.0.2902/dotnet_modules/].
+If this is a framework-dependent application, install the runtime in the global location [/usr/share/dotnet] or use the DOTNET_ROOT environment variable to specify the runtime location or register the runtime location in [/etc/dotnet/install_location].
+
+The .NET Core runtime can be found at:- https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=linuxmint.19.3-x64
+	at ChildProcess.<anonymous> (/home/abhinav/.vscode/extensions/ms-vsliveshare.vsliveshare-1.0.2902/out/prod/extension-prod.js:151503:32)
+	at ChildProcess.emit (events.js:228:7)
+	at maybeClose (internal/child_process.js:1021:16)
+	at Socket.<anonymous> (internal/child_process.js:430:11)
+	at Socket.emit (events.js:223:5)
+	at Pipe.<anonymous> (net.js:664:12)
+[2020-10-02 03:50:59.402] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2020-10-02 03:50:59.402] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2020-10-02 03:50:59.490] [exthost] [info] eager extensions activated

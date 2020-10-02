@@ -1,0 +1,4 @@
+[2020-10-02 03:50:46.877] [sharedprocess] [info] main {"machineId":"1db5eab00f19944964313cc7da9459c348e92411adc057de200f8028d9bf0f7e","windowId":2}
+[2020-10-02 03:50:46.962] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/abhinav/Learning_file_2/device_driver/=/User/snippets'
+[2020-10-02 03:50:49.790] [sharedprocess] [info] Deleted from disk cweijan.vscode-mysql-client2 /home/abhinav/.vscode/extensions/cweijan.vscode-mysql-client2-2.5.4
+[2020-10-02 03:51:26.892] [sharedprocess] [info] Starting to clean up unused language packs.
