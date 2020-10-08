@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/abhi.dir/main2.cpp.o"
+  "CMakeFiles/abhi.dir/video_processing.cpp.o"
   "abhi"
   "abhi.pdb"
 )

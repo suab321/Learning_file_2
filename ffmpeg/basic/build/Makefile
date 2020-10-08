@@ -142,32 +142,32 @@ abhi/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/build
 .PHONY : abhi/fast
 
-main2.o: main2.cpp.o
+video_processing.o: video_processing.cpp.o
 
-.PHONY : main2.o
+.PHONY : video_processing.o
 
 # target to build an object file
-main2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/main2.cpp.o
-.PHONY : main2.cpp.o
+video_processing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/video_processing.cpp.o
+.PHONY : video_processing.cpp.o
 
-main2.i: main2.cpp.i
+video_processing.i: video_processing.cpp.i
 
-.PHONY : main2.i
+.PHONY : video_processing.i
 
 # target to preprocess a source file
-main2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/main2.cpp.i
-.PHONY : main2.cpp.i
+video_processing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/video_processing.cpp.i
+.PHONY : video_processing.cpp.i
 
-main2.s: main2.cpp.s
+video_processing.s: video_processing.cpp.s
 
-.PHONY : main2.s
+.PHONY : video_processing.s
 
 # target to generate assembly for a file
-main2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/main2.cpp.s
-.PHONY : main2.cpp.s
+video_processing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/abhi.dir/build.make CMakeFiles/abhi.dir/video_processing.cpp.s
+.PHONY : video_processing.cpp.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... abhi"
-	@echo "... main2.o"
-	@echo "... main2.i"
-	@echo "... main2.s"
+	@echo "... video_processing.o"
+	@echo "... video_processing.i"
+	@echo "... video_processing.s"
 .PHONY : help
 
 

@@ -76,27 +76,27 @@ include CMakeFiles/abhi.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/abhi.dir/flags.make
 
-CMakeFiles/abhi.dir/main2.cpp.o: CMakeFiles/abhi.dir/flags.make
-CMakeFiles/abhi.dir/main2.cpp.o: ../main2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/abhi.dir/main2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abhi.dir/main2.cpp.o -c /home/abhinav/Learning_file_2/ffmpeg/basic/main2.cpp
+CMakeFiles/abhi.dir/video_processing.cpp.o: CMakeFiles/abhi.dir/flags.make
+CMakeFiles/abhi.dir/video_processing.cpp.o: ../video_processing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/abhi.dir/video_processing.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/abhi.dir/video_processing.cpp.o -c /home/abhinav/Learning_file_2/ffmpeg/basic/video_processing.cpp
 
-CMakeFiles/abhi.dir/main2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abhi.dir/main2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/abhinav/Learning_file_2/ffmpeg/basic/main2.cpp > CMakeFiles/abhi.dir/main2.cpp.i
+CMakeFiles/abhi.dir/video_processing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/abhi.dir/video_processing.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/abhinav/Learning_file_2/ffmpeg/basic/video_processing.cpp > CMakeFiles/abhi.dir/video_processing.cpp.i
 
-CMakeFiles/abhi.dir/main2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abhi.dir/main2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abhinav/Learning_file_2/ffmpeg/basic/main2.cpp -o CMakeFiles/abhi.dir/main2.cpp.s
+CMakeFiles/abhi.dir/video_processing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/abhi.dir/video_processing.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abhinav/Learning_file_2/ffmpeg/basic/video_processing.cpp -o CMakeFiles/abhi.dir/video_processing.cpp.s
 
 # Object files for target abhi
 abhi_OBJECTS = \
-"CMakeFiles/abhi.dir/main2.cpp.o"
+"CMakeFiles/abhi.dir/video_processing.cpp.o"
 
 # External object files for target abhi
 abhi_EXTERNAL_OBJECTS =
 
-abhi: CMakeFiles/abhi.dir/main2.cpp.o
+abhi: CMakeFiles/abhi.dir/video_processing.cpp.o
 abhi: CMakeFiles/abhi.dir/build.make
 abhi: /usr/lib/x86_64-linux-gnu/libavformat.so
 abhi: /usr/lib/x86_64-linux-gnu/libavcodec.so

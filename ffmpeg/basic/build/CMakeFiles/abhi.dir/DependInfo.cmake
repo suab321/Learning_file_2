@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/abhinav/Learning_file_2/ffmpeg/basic/main2.cpp" "/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles/abhi.dir/main2.cpp.o"
+  "/home/abhinav/Learning_file_2/ffmpeg/basic/video_processing.cpp" "/home/abhinav/Learning_file_2/ffmpeg/basic/build/CMakeFiles/abhi.dir/video_processing.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

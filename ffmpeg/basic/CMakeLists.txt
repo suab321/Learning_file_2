@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-add_executable(abhi main2.cpp)
+add_executable(abhi video_processing.cpp)
 
 find_library(AVFORMAT libavformat.so REQUIRED)
 find_library(AVCODEC libavcodec.so REQUIRED)
