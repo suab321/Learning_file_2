@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abhinav/Learning_file_2/memTracking/helper.hpp
+iostream
+-
+cstring
+-
+cstdlib
+-
+
+/home/abhinav/Learning_file_2/memTracking/sample.cpp
+iostream
+-
+test.hpp
+/home/abhinav/Learning_file_2/memTracking/test.hpp
+
+/home/abhinav/Learning_file_2/memTracking/test.hpp
+iostream
+-
+vector
+-
+unordered_map
+-
+utility
+-
+cstring
+-
+boost/stacktrace.hpp
+-
+helper.hpp
+/home/abhinav/Learning_file_2/memTracking/helper.hpp
+execinfo.h
+-
+

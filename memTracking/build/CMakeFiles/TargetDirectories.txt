@@ -1,0 +1,3 @@
+/home/abhinav/Learning_file_2/memTracking/build/CMakeFiles/rebuild_cache.dir
+/home/abhinav/Learning_file_2/memTracking/build/CMakeFiles/edit_cache.dir
+/home/abhinav/Learning_file_2/memTracking/build/CMakeFiles/abhi.dir

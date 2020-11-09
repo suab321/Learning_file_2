@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/abhi.dir/sample.cpp.o  -o abhi  /usr/local/lib/libunwind.a /usr/local/lib/libunwind-x86_64.a /usr/local/lib/libunwind-ptrace.a 
