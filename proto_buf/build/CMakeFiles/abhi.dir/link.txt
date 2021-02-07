@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/abhi.dir/test.cpp.o CMakeFiles/abhi.dir/sample.pb.cc.o  -o abhi  -lprotobuf -lpthread 

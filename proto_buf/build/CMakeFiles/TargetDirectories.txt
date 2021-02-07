@@ -1,0 +1,3 @@
+/home/abhinav/Learning_file_2/proto_buf/build/CMakeFiles/rebuild_cache.dir
+/home/abhinav/Learning_file_2/proto_buf/build/CMakeFiles/edit_cache.dir
+/home/abhinav/Learning_file_2/proto_buf/build/CMakeFiles/abhi.dir

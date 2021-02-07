@@ -1,0 +1,42 @@
+
+syntax = "proto2";
+
+package abhi;
+
+message Person{
+    
+    optional string name = 1;
+    optional int32 id = 2;
+
+
+    enum PhoneType{
+        MOBILE=0;
+        HOME=1;
+        WORK=2;
+    }
+
+    message PhoneNumber{
+        optional string number = 1;
+        optional PhoneType phone = 2 [default = HOME];
+    }
+
+    repeated PhoneNumber number=3;
+}
+
+message AddressBook {
+    repeated Person person=1;
+}
+
+message suab{
+    oneof command {
+        Req req=1;
+        Res res=2;
+        Update up=3;
+        Delete del=4;
+        int32 is=5;
+    }
+    message Req{}
+    message Res{}
+    message Delete{}
+    message Update{}
+}
